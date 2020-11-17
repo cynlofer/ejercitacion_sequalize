@@ -9,7 +9,7 @@ module.exports =(sequelize,DataTypes)=>{
     Actor.associate = models =>{ //asocio la variable Actor mediante la propiedad associate a otros modelos
         Actor.belongsToMany(models.Movie,{ 
             through: 'actor_movie', //nombre tabla intermedia o pivot
-            as:'actores' //alias
+            as:'peliculas' //alias
         })
 }
     return Actor;

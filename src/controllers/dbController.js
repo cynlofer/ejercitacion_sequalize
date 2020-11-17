@@ -33,6 +33,7 @@ module.exports ={
             const moviesjson = await Movie.findByPk(req.params.id,{include:['Genre','actores']});
             const generos = await Genre.findAll(); // traigo todos los generos
             const actores =  await Actor.findAll(); // traigo todos los actores
+            //res.send (moviesjson);
             res.render('detail',{pelicula:moviesjson,Genre,actores});
             //res.send({pelicula:moviesjson,Genre,actores})
             //console.log(actores)
@@ -116,6 +117,7 @@ module.exports ={
             const movieId = req.params.id; //capturo el id que le pedi por url
             const movieEdit = await Movie.findByPk(movieId, {include:['Genre', 'actores']}); //necesito buscar generos y actores
             const generos = await Genre.findAll(); //busco entre todos los generos
+            res.send(movieEdit)
             const actores = await Actor.findAll(); //busco entre todos los actores
             res.render('edit_movie',{movieEdit,generos,actores});
             //res.send(movieEdit,generos,actores)

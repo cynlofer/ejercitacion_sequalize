@@ -32,7 +32,7 @@
     				<select class= 'selector'  name="actors" multiple> <!--multiple para elegir varios actores-->
 					<% actores.forEach(actor => {%> <!--itero todos los actores y comparo si alguno esta en la base de datos, si esta actuo en esa pelicula, si actupo aparece selccionado-->
 					<% if (pelicula.actores.some(actorPelicula => actorPelicula.id == actor.id)) {%> <!--SOME es un metodo que busca un mach adentro de una array y devuelve T o F, si el id de ese actor es = al que estoy iterando entra al if y lo 'selected'-->
-					<option value=''<%= actor.id %> selected><%= actor.first_name +' ' %><% actor.last_name %> </option>
+					<option value=''<%= actor.id %> selected><%= actor.first_name +' ' %><%= actor.last_name %> </option>
 					<% } else { %><!--si no, option normal, sin selected-->
 					<!--<option value='<%= actor.id %>'><%= actor.first_name +' ' %><%= actor.last_name %> </option>-->
 					<% } %>
