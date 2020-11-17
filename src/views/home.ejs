@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet"> 
+
+	<link rel="stylesheet" href="../stylesheets/home.css">
+</head>
+
+
+<html lang="es">
+<!-- Header -->
+<%- include('partials/Header') %>
+<!-- /Header -->
+<body>
+	
+	<div class= 'buscar'>
+         
+
+
+	          <form action="/movies/search" method="POST">
+
+		   <p>
+	  
+		     <input class='barra_busqueda' type="text" name="name" placeholder="Buscá tu pelicula">
+	  
+			 <button class='boton_buscar'  >BUSCAR<type="submit"> </button>
+
+			
+	  
+		   </p>
+	  
+        </form>
+
+	</div>
+	<div class='listado_pelis'>
+		<h2><h2>listado de peliculas</h2></h2>
+	</div>
+
+	<div class = 'pelis'>
+	            
+					<% peliculas.forEach(peliculas=> { %>
+						<div>	
+							<section>
+								<a href= <%='/movies/detail/'+ peliculas.id %> >
+											<article>
+												<p><%= peliculas.title %> </p>
+											</article>
+								</a>
+							</section>	
+						</div>
+					<% }) %>
+	</div>
+ 			<!-- Footer -->
+ 			<%- include('partials/Footer') %>
+ 			<!-- /Footer -->
+</body>	
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="../stylesheets/home.css">
+  <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+<html lang="es">
+  <!-- Header -->
+<%- include('partials/Header') %>
+<!-- /Header -->
+<body>
+  <div
+     class='listado_pelis'>
+      <h2>listado de peliculas</h2>
+    
+      <section>
+        <a href="#"></a>
+        <section>
+          <ul>
+            <% peliculas.forEach(peliculas=> { %>
+                <a href= <%= "/movies/detail/" + peliculas.id %> >
+                  <article>
+                    <p><%= peliculas.title %> </p>
+                  </article>
+                </a>
+              <% }) %>
+        </ul>
+        </section>
+</section>
+  </div>        
+</body>	
+  <!-- Footer -->
+  <%- include('partials/Footer') %>
+  <!-- /Footer -->
+</html>

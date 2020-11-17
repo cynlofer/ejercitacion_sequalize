@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<html lang="es">
+
+<!-- Header -->
+<%- include('partials/Header') %>
+<!-- /Header -->
+
+<body>
+  <div class= 'titulo'>
+	  <h2>Detalle de la pelicula</h2>
+  </div>
+			<div>	
+				<section class= 'detalle'>
+					<a href="#"></a>
+					<article>
+					<p><strong>Titulo</strong>: <%= pelicula.title %> </p>
+					<p><strong>Rating</strong>: <%= pelicula.rating %> </p>
+					<p><strong>Premios</strong>: <%= pelicula.awards %> </p>
+					<p><strong>Duracion</strong>: <%= pelicula.length %> </p>
+					<p><strong>Fecha de Estreno</strong>: <%= pelicula.release_date %> </p>
+					</article>
+					
+					<label for=''>Actores</label>
+					<br>
+    				<select class= 'selector'  name="actors" multiple> <!--multiple para elegir varios actores-->
+					<% actores.forEach(actor => {%> <!--itero todos los actores y comparo si alguno esta en la base de datos, si esta actuo en esa pelicula, si actupo aparece selccionado-->
+					<% if (pelicula.actores.some(actorPelicula => actorPelicula.id == actor.id)) {%> <!--SOME es un metodo que busca un mach adentro de una array y devuelve T o F, si el id de ese actor es = al que estoy iterando entra al if y lo 'selected'-->
+					<option value=''<%= actor.id %> selected><%= actor.first_name +' ' %><% actor.last_name %> </option>
+					<% } else { %><!--si no, option normal, sin selected-->
+					<!--<option value='<%= actor.id %>'><%= actor.first_name +' ' %><%= actor.last_name %> </option>-->
+					<% } %>
+					<% }) %>
+					</select>
+				</section>
+				
+				<div class = 'botones'>
+        			<form action='/movies/delete/<%=pelicula.id%>?_method=DELETE' method='POST'>
+            		<button class= "borrar" type='submit' >Borrar</button>
+        			</form>
+        			<form action='/movies/edit/<%=pelicula.id%>' method='GET'>
+            		<button class= "modificar" type='submit' >Modificar</button>
+					</form>
+		
+				</div>
+            </div>
+            <!-- Footer -->
+ 			<%- include('partials/Footer') %>
+ 			<!-- /Footer --> 
+</body>	
+</html>

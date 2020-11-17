@@ -1,0 +1,92 @@
+*{
+    box-sizing: border-box;
+}
+*{padding:0px;
+}
+*{margin:0px;
+}
+
+.header{
+  background-color: white;
+  display: flex;
+  align-items: space-between;
+  
+}
+.form_crear{
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+.agregar{
+  background: grey;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px;
+    margin: 20px;
+    transition: all 1s;
+    color: white;
+    align-content: flex-end;
+    
+}
+.body{
+    background-color: #1D2D5F;
+    margin: 20px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  a {
+    color: white;
+    margin-left: 30px;
+
+  }
+
+  
+
+  
+.buscar{
+    background-color: #FFBC47;
+    align-items: center;
+
+  }
+  .boton_buscar{
+    background: grey;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px;
+    margin: 20px;
+    transition: all 1s;
+    color: white;
+  }
+
+  .barra_busqueda{
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px;
+    margin: 20px;
+    background: white;
+
+  
+  }
+
+ .pelis{
+  padding: 30px;
+  align-items: center;
+  background-color: #F65E5D;
+  color: white;
+ 
+  
+}
+.listado_pelis{
+  align-items: center;
+  background-color: #40CEE3;
+  padding: 20px;
+  color: white;
+}
+
+
+.footer{
+  background-color: #FFBC47;
+    align-items: center;
+    display: flex;
+
+}
