@@ -49,7 +49,7 @@
           <label for = 'name' >Actores</label>
           <select class= 'actor' name = 'actors'multiple >
             <%actores.forEach(actor => {%>
-         <option value = '<%= actor.id%>' ><%= actor.first_name %> <%= actor.last_name %></option>
+         <option value = '<%= actor.id%>' ><%= actor.first_name +' ' %><%= actor.last_name %></option>
          <%})%>
            </select>
 

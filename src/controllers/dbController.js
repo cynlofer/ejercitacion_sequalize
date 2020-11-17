@@ -117,7 +117,7 @@ module.exports ={
             const movieId = req.params.id; //capturo el id que le pedi por url
             const movieEdit = await Movie.findByPk(movieId, {include:['Genre', 'actores']}); //necesito buscar generos y actores
             const generos = await Genre.findAll(); //busco entre todos los generos
-            res.send(movieEdit)
+            //res.send(movieEdit)
             const actores = await Actor.findAll(); //busco entre todos los actores
             res.render('edit_movie',{movieEdit,generos,actores});
             //res.send(movieEdit,generos,actores)
