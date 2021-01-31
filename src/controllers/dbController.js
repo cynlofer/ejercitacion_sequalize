@@ -1,3 +1,4 @@
+
 const {Movie,Genre,Actor}= require("../database/models");
 const { Op } = require("sequelize");
 const actor = require("../database/models/actor");
@@ -34,7 +35,7 @@ module.exports ={
             const generos = await Genre.findAll(); // traigo todos los generos
             const actores =  await Actor.findAll(); // traigo todos los actores
             //res.send (moviesjson);
-            res.render('detail',{pelicula:moviesjson,Genre,actores});
+            res.render('detail',{pelicula:moviesjson,Genre,actores,generos});
             //res.send({pelicula:moviesjson,Genre,actores})
             //console.log(actores)
             
@@ -61,9 +62,8 @@ module.exports ={
         try{
             const moviesjson = await Movie.findAll({
                 where:{
-                    rating: { 
-                        [Op.gte]: 8
-                    }
+                    rating: {[Op.gte]: 8},
+                    order:[['rating','DESC']]
                 }
             });
             res.render('recomendadas',{peliculas:moviesjson});

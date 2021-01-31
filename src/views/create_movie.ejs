@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies Cynthia Lofer</title>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" href="/stylesheets/style.css">
     
@@ -47,7 +48,7 @@
           </select>
 
           <label for = 'name' >Actores</label>
-          <select class= 'actor' name = 'actors'multiple >
+          <select class= 'actor' name = 'actores' multiple >
             <%actores.forEach(actor => {%>
          <option value = '<%= actor.id%>' ><%= actor.first_name +' ' %><%= actor.last_name %></option>
          <%})%>

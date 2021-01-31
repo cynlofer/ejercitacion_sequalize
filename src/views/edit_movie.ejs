@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Movies Cynthia Lofer</title>
 	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" href="/stylesheets/style.css">
 </head>
@@ -12,58 +13,48 @@
 <!-- /Header -->
 
 <body>
-  <div class= 'titulo'>
-	  <h2>Editar película</h2>
-	</div>
-	<body>
-		<form action="/movies/edit/<%=movieEdit.id%>?_method=PUT"  method = 'POST'>
-			<div class= 'formulario'>
-				<label for = 'title' >Título</label>
-				<input type="text" name = 'title' value = '<%=movieEdit.title%>'>
-	
-				<label for = 'rating' >Rating</label>
-				<input type="text" name = 'rating' value = '<%=movieEdit.rating%>'>
-	
-				<label for = 'awards' >Premios</label>
-				<input type="text" name = 'awards' value = '<%=movieEdit.awards%>'>
-	
-				<label for = 'length' >Duración</label>
-				<input type="text" name = 'length' value = '<%=movieEdit.length%>'>
-
-				<label for='Genre' >Genero</label>
-				<select class= 'selector'  name='Genre_id' id=''>
-					<% generos.forEach(genero => {  %> <!--  tengo que iterar todos los generos para comparar si es = al de la pelicula, si es = lo tengo que marcar como seleccionado -->
-					<% if (movieEdit.GenreId === genero.id) { %> <!-- si el genero que estamos editando es = al id de genero que estamos iterando, entonces es ese -->
-					<option value ='<%= genero.id %>' selected> <%= genero.name %> </option> <!-- entoces lo imprimo, pero con el atributo selected-->
-				
-				<%} else { %>
-				    <option value='<%= genero.id %>' > <%= genero.name %> </option>option></option> <!--si no, me muestra un option normal-->
-				<% } %>>
-				<%})%>
-				</select>
-	<label for=''>Actores</label>
-    <select class= 'selector'  name="actors" multiple> <!--multiple para elegir varios actores-->
-		<% actores.forEach(actor => {%> <!--itero todos los actores y comparo si alguno esta en la base de datos, si esta actuo en esa pelicula, si actupo aparece selccionado-->
-		<% if (movieEdit.actores.some(actorPelicula => actorPelicula.id == actor.id)) {%> <!--SOME es un metodo que busca un mach adentro de una array y devuelve T o F, si el id de ese actor es = al que estoy iterando entra al if y lo 'selected'-->
-		<option value=''<%= actor.id %> selected><%= actor.first_name +' ' %><% actor.last_name %> </option>
-		<% } else { %><!--si no, option normal, sin selected-->
-		<option value='<%= actor.id %>'><%= actor.first_name +' ' %><%= actor.last_name %> </option>
-		<% } %>
-		<% }) %>
-	</select>
-				<!-- <label for = 'release_date' >Fecha de estreno</label>
-				<input type="date" name = 'release_date' value = '<%=movieEdit.release_date%>'> -->
-	
-			</div>
-			<div class= 'botones'>
-			<form action='/movies/edit/<%=movieEdit.id%>?_method=PUT' method='POST'>
-				<button class= "modificar" type='submit' >Actualizar!</button>
-			</form>
-			</div>
-			</form>
-			
-             <!-- Footer -->
- 			<%- include('partials/Footer') %>
- 			<!-- /Footer -->
-</body>	
-</html>
+	<div class= 'titulo'>
+	   <h2>Editar película</h2>
+	 </div>
+	 <body>
+		 <form action="/movies/edit/<%=movieEdit.id%>?_method=PUT"  method = 'POST'>
+			 <div class= 'formulario'>
+				 <label for = 'title' >Título</label>
+				 <input type="text" name = 'title' value = '<%=movieEdit.title%>'>
+				 <label for = 'rating' >Rating</label>
+				 <input type="text" name = 'rating' value = '<%=movieEdit.rating%>'>
+				 <label for = 'awards' >Premios</label>
+				 <input type="text" name = 'awards' value = '<%=movieEdit.awards%>'>
+				 <label for = 'length' >Duración</label>
+				 <input type="text" name = 'length' value = '<%=movieEdit.length%>'>
+ 
+				 <label for='Genre' >Genero</label>
+				 <select class= 'selector'  name='genre_id' id=''>
+					 <% generos.forEach(genero => {  %> <!--  tengo que iterar todos los generos para comparar si es = al de la pelicula, si es = lo tengo que marcar como seleccionado -->
+						 <% if (movieEdit.GenreId === genero.id) { %> <!-- si el genero que estamos editando es = al id de genero que estamos iterando, entonces es ese -->
+							 <option value ='<%= genero.id %>' selected> <%= genero.name %> </option> <!-- entoces lo imprimo, pero con el atributo selected-->
+					 <%} else { %>
+						 <option value='<%= genero.id %>'> <%= genero.name %></option> <!--si no, me muestra un option normal-->
+					 <% } %>>
+				 <%})%>
+				 </select>
+				 <label for=''>Actores</label>
+				 <select name="actores" id="" class='selector' multiple>
+					 <% actores.forEach(actor => {%>
+						 <% if (movieEdit.actores.some(actorPelicula=>actorPelicula.id == actor.id)) { %>
+							 <option value = '<%= actor.id%>' selected ><%= actor.first_name %><%= actor.last_name %></option>
+						 <% } else { %>
+							 <option value = '<%= actor.id%>' ><%= actor.first_name %><%= actor.last_name %></option>
+						 <% } %> 
+					 <%})%>
+				 </select>
+				 <div class= 'boton_actualizar'>
+					 <button class= "modificar" type='submit' >Actualizar!</button>
+				 </div>
+			 </div>	
+		 </form>
+		 <!-- Footer -->
+		 <%- include('partials/Footer') %>
+		 <!-- /Footer -->
+ </body>	
+ </html>

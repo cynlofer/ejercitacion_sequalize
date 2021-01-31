@@ -6,7 +6,8 @@ module.exports =(sequelize,DataTypes)=>{
         rating : DataTypes.DECIMAL,
         favorite_movie_id:DataTypes.INTEGER
     });
-    Actor.associate = models =>{ //asocio la variable Actor mediante la propiedad associate a otros modelos
+   
+Actor.associate = models =>{ //asocio la variable Actor mediante la propiedad associate a otros modelos
         Actor.belongsToMany(models.Movie,{ 
             through: 'actor_movie', //nombre tabla intermedia o pivot
             as:'peliculas' //alias
